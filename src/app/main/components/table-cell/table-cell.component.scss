@@ -1,0 +1,20 @@
+.cell {
+  &-edit {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &-control {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &-input {
+    border: none;
+    border-bottom: 2px solid var(--violet);
+    background-color: transparent;
+    height: 30px;
+  }
+}

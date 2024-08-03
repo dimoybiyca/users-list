@@ -1,0 +1,37 @@
+<div class="cell">
+  @if(isEditing()) {
+  <div class="cell-edit">
+    <div class="cell-field">
+      <input
+        class="cell-input"
+        type="text"
+        [formControl]="control"
+        [value]="user[field]"
+      />
+      <ul-input-validation
+        [control]="control"
+        [isShowAlways]="true"
+      ></ul-input-validation>
+    </div>
+
+    <div class="cell-control">
+      <button
+        class="btn btn-icon"
+        (click)="onSubmit()"
+        [ngClass]="{
+          'btn-disabled': control.invalid,
+          'btn-submit': control.valid
+        }"
+      >
+        <ul-icon iconName="CHECKMARK" fill="white"></ul-icon>
+      </button>
+
+      <button class="btn btn-icon btn-danger" (click)="onCancel()">
+        <ul-icon iconName="CLOSE" fill="white"></ul-icon>
+      </button>
+    </div>
+  </div>
+  } @else {
+  <div class="cell-value" (click)="onEdit()">{{ user[field] }}</div>
+  }
+</div>

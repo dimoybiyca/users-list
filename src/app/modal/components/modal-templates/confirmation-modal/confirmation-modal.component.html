@@ -1,0 +1,22 @@
+<div class="modal">
+  <div class="modal-header">
+    <h2 class="modal-title">Confirmation</h2>
+    <button class="btn modal-close" (click)="closeModal()">
+      <ul-icon iconName="CLOSE"></ul-icon>
+    </button>
+  </div>
+
+  <div class="modal-content">
+    {{ data.message }}
+  </div>
+
+  <div class="modal-control">
+    <button class="btn btn-danger" type="button" (click)="onCancel()">
+      Cancel
+    </button>
+
+    <button class="btn btn-submit" type="button" (click)="onSubmit()">
+      Submit
+    </button>
+  </div>
+</div>

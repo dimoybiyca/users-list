@@ -1,0 +1,10 @@
+:host {
+  max-width: 600px;
+  flex-grow: 1;
+}
+
+.modal {
+  &-content {
+    font-size: 18px;
+  }
+}

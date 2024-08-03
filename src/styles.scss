@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import "typography/_colors.scss";
+@import "typography/_buttons.scss";
+@import "typography/_modal.scss";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: url("assets/img/background.webp");
+  background-repeat: no-repeat;
+  max-height: 100vh;
+  height: 100vh;
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+input {
+  border: none;
+}

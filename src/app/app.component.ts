@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ModalComponent } from './modal/components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterOutlet, ModalComponent],
 })
-export class AppComponent {
-  title = 'user-list';
-}
+export class AppComponent {}

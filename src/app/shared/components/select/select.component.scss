@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  border: none;
+  border-bottom: 2px solid var(--violet);
+  background-color: transparent;
+  height: 35px;
+  flex-grow: 1;
+}
+
+label {
+  text-transform: capitalize;
+  color: var(--violet);
+  font-size: 14px;
+}
+
+.invalid-text {
+  color: var(--magenta);
+}

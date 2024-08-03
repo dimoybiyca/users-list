@@ -1,0 +1,16 @@
+<div class="search">
+  <ul-icon
+    iconName="SEARCH"
+    fill="#8338ec"
+    stroke="#8338ec"
+    size="28px"
+  ></ul-icon>
+  <label class="search-label" for="search" hidden>Search</label>
+  <input
+    class="search-input"
+    id="search"
+    type="text"
+    (input)="onInput($event)"
+    [value]="initialValue"
+  />
+</div>

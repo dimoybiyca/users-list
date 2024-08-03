@@ -1,0 +1,17 @@
+<label
+  [for]="controlName"
+  [ngClass]="{ 'invalid-text': control.invalid && control.touched }"
+  >{{ label || controlName }}:</label
+>
+<input
+  [id]="controlName"
+  [type]="type"
+  [placeholder]="placeholder || 'Enter ' + (label || controlName)"
+  [prefix]="prefix ?? ''"
+  [mask]="mask ?? ''"
+  [(ngModel)]="value"
+  (ngModelChange)="onValueChange()"
+  (blur)="onBlur()"
+  [ngClass]="{ invalid: control.invalid && control.touched }"
+/>
+<ul-input-validation [control]="control.control"></ul-input-validation>

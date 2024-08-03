@@ -1,0 +1,59 @@
+<div class="modal">
+  <div class="modal-header">
+    <h2 class="modal-title">
+      {{ data.isEdit ? "Edit user" : "Create user" }}
+    </h2>
+    <button class="modal-close" (click)="closeModal()">
+      <ul-icon
+        iconName="CLOSE"
+        fill="black"
+        stroke="black"
+        size="32px"
+      ></ul-icon>
+    </button>
+  </div>
+
+  <div class="modal-content">
+    <div class="user">
+      @if(firstName.value) {
+      <div class="user-avatar">
+        <span class="user-letter">{{ firstName.value.at(0) || "" }}</span>
+      </div>
+      }
+    </div>
+
+    <form class="modal-form" [formGroup]="userForm">
+      <ul-input formControlName="firstName" label="first name" />
+
+      <ul-input formControlName="lastName" label="last name" />
+
+      <ul-input formControlName="email" type="email" />
+
+      <ul-input formControlName="phone" type="phone" mask="+0{15}" />
+
+      <ul-select formControlName="city" [options]="cities"></ul-select>
+
+      <ul-input formControlName="street" />
+
+      <ul-input formControlName="appartment" />
+    </form>
+  </div>
+
+  <div class="modal-control">
+    <button class="btn btn-danger" type="button" (click)="onCancel()">
+      Cancel
+    </button>
+
+    <button
+      class="btn"
+      type="button"
+      (click)="onSubmit()"
+      [ngClass]="{
+        'btn-disabled': userForm.invalid,
+        'btn-submit': userForm.valid
+      }"
+    >
+      {{ data.isEdit ? "Save" : "Create" }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.main {
+  background-color: rgba(255, 255, 255, 0.404);
+  border-radius: 20px;
+  padding-bottom: 10px;
+
+  &-top {
+    background-color: rgba(255, 255, 255, 0.404);
+    border-radius: 20px 20px 0 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-header {
+    color: var(--white);
+  }
+
+  &-button {
+    padding: 5px 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,6 @@
+@if(control?.invalid && (control?.touched || isShowAlways)) {
+<div class="validation">
+  <ul-icon iconName="DANGER" stroke="red" size="14px"></ul-icon>
+  <span class="error-message">{{ errorMessage }}</span>
+</div>
+}

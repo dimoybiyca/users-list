@@ -1,0 +1,38 @@
+.btn {
+  border-radius: 10px;
+  font-weight: bold;
+  color: var(--white);
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 10px 20px;
+
+  &-icon {
+    padding: 8px;
+  }
+
+  &-submit {
+    background-color: var(--green);
+  }
+
+  &-warn {
+    background-color: var(--blue);
+  }
+
+  &-danger {
+    background-color: var(--magenta);
+  }
+
+  &-primary {
+    background-color: var(--violet);
+  }
+
+  &-disabled {
+    background-color: var(--gray);
+    cursor: not-allowed;
+  }
+
+  &:hover:not(.btn-disabled) {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+  }
+}

@@ -1,0 +1,62 @@
+<div class="wrapper">
+  @if(users.length) {
+  <cdk-virtual-scroll-viewport class="viewport" itemSize="50">
+    <table class="table">
+      <thead class="table-head" [style.top]="inverseOfTranslation()">
+        <tr class="table-row">
+          <th>№</th>
+          <th>Avatar</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Street</th>
+          <th>Appartment</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr
+          class="table-row"
+          *cdkVirtualFor="
+            let user of users;
+            let idx = index;
+            trackBy: trackByUserId
+          "
+        >
+          <td class="table-index">{{ idx + 1 }}</td>
+          <td class="table-avatar">
+            <div class="user-letter">{{ user.firstName.at(0) || "" }}</div>
+          </td>
+          <td><ul-table-cell field="firstName" [user]="user" /></td>
+          <td><ul-table-cell field="lastName" [user]="user" /></td>
+          <td><ul-table-cell field="email" [user]="user" /></td>
+          <td><ul-table-cell field="phone" [user]="user" /></td>
+          <td>
+            <ul-table-cell-select
+              field="city"
+              [user]="user"
+              [options]="cities"
+            />
+          </td>
+          <td><ul-table-cell field="street" [user]="user" /></td>
+          <td><ul-table-cell field="appartment" [user]="user" /></td>
+          <td>
+            <div class="table-actions">
+              <button class="btn btn-warn" (click)="onEditUser(user)">
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="onDeleteUser(user.id)">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </cdk-virtual-scroll-viewport>
+  } @else {
+  <div class="empty">No users found</div>
+  }
+</div>

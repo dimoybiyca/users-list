@@ -1,0 +1,20 @@
+<label
+  for="controlName"
+  [ngClass]="{ 'invalid-text': control.invalid && control.touched }"
+  >{{ label || controlName }}:</label
+>
+<select
+  name="controlName"
+  id="controlName"
+  [(ngModel)]="value"
+  (ngModelChange)="onValueChange()"
+>
+  <option [value]="getPlaceholder()" selected disabled hidden>
+    {{ getPlaceholder() }}
+  </option>
+
+  @for (option of options; track $index) {
+  <option [value]="option" [label]="option"></option>
+  }
+</select>
+<ul-input-validation [control]="control.control"></ul-input-validation>

@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="main-top">
+    <h1 class="main-header">Users</h1>
+
+    <ul-search-input (valueChange)="onSearchChange($event)"></ul-search-input>
+
+    <button class="main-button btn btn-primary" (click)="onAddUser()">
+      <ul-icon iconName="ADD-SQUARE"></ul-icon>
+      <span class="main-button-text">Add</span>
+    </button>
+  </div>
+
+  <ul-users-table
+    [users]="store.searchQuery() ? store.filteredUsers() : store.users()"
+  >
+  </ul-users-table>
+</div>

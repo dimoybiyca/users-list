@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border-bottom: 2px solid var(--violet);
+  height: 35px;
+  flex-grow: 1;
+}
+
+label {
+  text-transform: capitalize;
+  color: var(--violet);
+  font-size: 14px;
+}
+
+.invalid {
+  border-bottom: 2px solid var(--magenta);
+
+  &-text {
+    color: var(--magenta);
+  }
+}

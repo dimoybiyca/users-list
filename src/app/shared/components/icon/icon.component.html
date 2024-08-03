@@ -1,0 +1,11 @@
+@if (iconName) {
+<svg
+  [attr.height]="size"
+  [attr.width]="size"
+  [attr.fill]="fill"
+  [attr.stroke]="stroke"
+  [attr.viewBox]="'0 0 24 24'"
+>
+  <use [attr.xlink:href]="'assets/icons.svg#' + 'ICON_' + iconName"></use>
+</svg>
+}

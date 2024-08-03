@@ -1,0 +1,11 @@
+<div class="cell">
+  <div class="cell-select">
+    <select type="text" [formControl]="control" [value]="user[field]">
+      <option [value]="user[field]" hidden selected>{{ user[field] }}</option>
+
+      @for (option of options; track $index) {
+      <option [value]="option" [label]="option"></option>
+      }
+    </select>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+:host {
+  max-width: 800px;
+  flex-grow: 1;
+}
+
+.modal {
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+
+.user {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: white;
+    background-color: var(--violet);
+  }
+
+  &-letter {
+    text-transform: uppercase;
+  }
+}
