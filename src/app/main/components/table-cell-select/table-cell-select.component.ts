@@ -3,7 +3,9 @@ import {
   Component,
   inject,
   Input,
+  OnChanges,
   OnDestroy,
+  SimpleChanges,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MainStore } from 'app/main/store/main.store';
@@ -20,7 +22,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './table-cell-select.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableCellSelectComponent implements OnDestroy {
+export class TableCellSelectComponent implements OnDestroy, OnChanges {
   @Input() field!: TUserEditableField;
   @Input() user!: TUser;
   @Input() options!: string[];
@@ -36,6 +38,12 @@ export class TableCellSelectComponent implements OnDestroy {
     this.control.valueChanges.pipe(takeUntil(this.$destroy)).subscribe(() => {
       this.store.updateUser({ ...this.user, [this.field]: this.control.value });
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes?.['user']) {
+      this.control?.setValue(this.user[this.field], { emitEvent: false });
+    }
   }
 
   ngOnDestroy(): void {
