@@ -1,5 +1,5 @@
 <div class="cell">
-  @if(isEditing()) {
+  @if(store.userIdToEdit() === user.id && store.userFieldToEdit() === field) {
   <div class="cell-edit">
     <div class="cell-field">
       <input

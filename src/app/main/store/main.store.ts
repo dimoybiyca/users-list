@@ -10,6 +10,7 @@ import {
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { initialMainState } from 'app/main/store/main.state';
 import { UserService } from 'app/shared/services/user-service/user.service';
+import { TUserEditableField } from 'app/shared/types/user-editable-field.type';
 import { TUser } from 'app/shared/types/user.type';
 import { pipe, switchMap, tap } from 'rxjs';
 
@@ -29,6 +30,18 @@ export const MainStore = signalStore(
         })
       )
     ),
+
+    getUserById(id: string): TUser | null {
+      return store.users().find((user) => user.id === id) ?? null;
+    },
+
+    setUserIdToEdit(id: string | null): void {
+      patchState(store, { userIdToEdit: id });
+    },
+
+    setUserFieldToEdit(field: TUserEditableField | null): void {
+      patchState(store, { userFieldToEdit: field });
+    },
   })),
 
   withMethods((store, userService = inject(UserService)) => ({

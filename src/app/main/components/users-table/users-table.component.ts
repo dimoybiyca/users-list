@@ -12,7 +12,6 @@ import {
 } from '@angular/core';
 import { TableCellSelectComponent } from 'app/main/components/table-cell-select/table-cell-select.component';
 import { TableCellComponent } from 'app/main/components/table-cell/table-cell.component';
-import { TableService } from 'app/main/services/table-service/table.service';
 import { MainStore } from 'app/main/store/main.store';
 import { TAddEditUserModalData } from 'app/modal/components/modal-templates/add-edit-user-modal/add-edit-user-modal-data.type';
 import { AddEditUserModalComponent } from 'app/modal/components/modal-templates/add-edit-user-modal/add-edit-user-modal.component';
@@ -39,7 +38,6 @@ export class UsersTableComponent {
   @ViewChild(CdkVirtualScrollViewport) viewport!: CdkVirtualScrollViewport;
 
   private modalService: ModalService = inject(ModalService);
-  private tableService: TableService = inject(TableService);
 
   store = inject(MainStore);
   currentSearchQuery: string = '';
@@ -51,7 +49,7 @@ export class UsersTableComponent {
       () => {
         if (this.currentSearchQuery !== this.store.searchQuery()) {
           this.currentSearchQuery = this.store.searchQuery();
-          this.tableService.onCancelEdit();
+          this.cancelCellEditing();
         }
       },
       { allowSignalWrites: true }
@@ -59,6 +57,8 @@ export class UsersTableComponent {
   }
 
   onEditUser(user: TUser): void {
+    this.cancelCellEditing();
+
     const data: TAddEditUserModalData = {
       isEdit: true,
       user,
@@ -109,5 +109,10 @@ export class UsersTableComponent {
     const offset = this.viewport.getOffsetToRenderedContentStart();
 
     return `-${offset}px`;
+  }
+
+  private cancelCellEditing(): void {
+    this.store.setUserIdToEdit(null);
+    this.store.setUserFieldToEdit(null);
   }
 }

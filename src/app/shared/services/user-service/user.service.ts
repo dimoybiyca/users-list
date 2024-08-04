@@ -61,14 +61,14 @@ export class UserService {
   private generateMockData(): TUser[] {
     const users: TUser[] = [];
 
-    for (let i = 0; i < environment.amountOfMockUsers; i++) {
+    for (let i = 0; i < 100; i++) {
       users.push({
         id: i.toString(),
         firstName: `User`,
         lastName: `Lastname`,
         email: `test${i}@gmail.com`,
         phone: `+380634444413`,
-        city: `City`,
+        city: `Kyiv`,
         street: `Street`,
         appartment: `${i}`,
       });
