@@ -45,11 +45,14 @@ export class TableCellComponent implements OnInit {
 
   store = inject(MainStore);
   control!: FormControl;
+  initialValue!: string;
   isEditing = signal(false);
 
   ngOnInit(): void {
+    this.initialValue = this.user[this.field];
+
     this.control = new FormControl(
-      this.user[this.field],
+      this.initialValue,
       userValidators[this.field]
     );
   }
@@ -84,5 +87,9 @@ export class TableCellComponent implements OnInit {
     this.isEditing.set(false);
     this.tableService.onCancelEdit();
     this.control.setValue(this.user[this.field]);
+  }
+
+  isSubmitDisabled(): boolean {
+    return this.control.invalid || this.control.value === this.initialValue;
   }
 }

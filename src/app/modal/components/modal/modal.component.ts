@@ -21,7 +21,7 @@ export const MODAL_DATA = new InjectionToken<any>('MODAL_DATA');
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent implements OnInit, OnDestroy {
-  modalState: ModalRef[] = [];
+  modalState: ModalRef<any>[] = [];
   modalInjectors: Injector[] = [];
 
   private $destroy = new Subject<void>();

@@ -19,9 +19,10 @@
       <button
         class="btn btn-icon"
         (click)="onSubmit()"
+        [disabled]="isSubmitDisabled()"
         [ngClass]="{
-          'btn-disabled': control.invalid,
-          'btn-submit': control.valid
+          'btn-disabled': isSubmitDisabled(),
+          'btn-submit': !isSubmitDisabled()
         }"
       >
         <ul-icon iconName="CHECKMARK" fill="white"></ul-icon>
