@@ -19,6 +19,7 @@ import { AddEditUserModalComponent } from 'app/modal/components/modal-templates/
 import { TConfirmationModalData } from 'app/modal/components/modal-templates/confirmation-modal/confirmation-modal-data.type';
 import { ConfirmationModalComponent } from 'app/modal/components/modal-templates/confirmation-modal/confirmation-modal.component';
 import { ModalService } from 'app/modal/services/modal/modal.service';
+import { TModalConfirmationResult } from 'app/modal/types/modal-confirmation-result.type';
 import { UkrainianCities } from 'app/shared/data/ukrainian-cities';
 import { TUser } from 'app/shared/types/user.type';
 import { take } from 'rxjs';
@@ -61,7 +62,7 @@ export class UsersTableComponent {
       user,
     };
 
-    const modalRef = this.modalService.openModal(
+    const modalRef = this.modalService.openModal<TUser>(
       AddEditUserModalComponent,
       data
     );
@@ -80,7 +81,7 @@ export class UsersTableComponent {
     const data: TConfirmationModalData = {
       message: 'Are you sure you want to delete this user?',
     };
-    const modalRef = this.modalService.openModal(
+    const modalRef = this.modalService.openModal<TModalConfirmationResult>(
       ConfirmationModalComponent,
       data
     );
@@ -89,7 +90,7 @@ export class UsersTableComponent {
       .afterClosed()
       .pipe(take(1))
       .subscribe((result) => {
-        if (result.data.confirmed) {
+        if (result.data?.confirmed) {
           this.store.deleteUser(id);
         }
       });

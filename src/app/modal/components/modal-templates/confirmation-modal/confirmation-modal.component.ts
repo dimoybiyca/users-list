@@ -4,9 +4,10 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
-import { IconComponent } from '../../../../shared/components/icon/icon.component';
-import { ModalRef } from '../../../data/modal-ref';
-import { TConfirmationModalData } from './confirmation-modal-data.type';
+import { TModalConfirmationResult } from 'app/modal/types/modal-confirmation-result.type';
+import { TConfirmationModalData } from 'app/modal/components/modal-templates/confirmation-modal/confirmation-modal-data.type';
+import { ModalRef } from 'app/modal/data/modal-ref';
+import { IconComponent } from 'app/shared/components/icon/icon.component';
 
 @Component({
   selector: 'ul-confirmation-modal',
@@ -17,7 +18,7 @@ import { TConfirmationModalData } from './confirmation-modal-data.type';
   imports: [IconComponent],
 })
 export class ConfirmationModalComponent implements OnInit {
-  private modalRef: ModalRef = inject(ModalRef);
+  private modalRef: ModalRef<TModalConfirmationResult> = inject(ModalRef);
 
   data!: TConfirmationModalData;
 
@@ -30,10 +31,10 @@ export class ConfirmationModalComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.modalRef?.close({ confirmed: false });
+    this.closeModal();
   }
 
   closeModal(): void {
-    this.modalRef?.close(null);
+    this.modalRef?.close({ confirmed: false });
   }
 }

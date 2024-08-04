@@ -6,11 +6,11 @@ import { Observable, Subject, take } from 'rxjs';
   providedIn: 'root',
 })
 export class ModalService {
-  private modalStateSubject = new Subject<ModalRef[]>();
-  private modals: ModalRef[] = [];
+  private modalStateSubject = new Subject<ModalRef<any>[]>();
+  private modals: ModalRef<any>[] = [];
 
-  openModal(modal: Type<any>, data?: any): ModalRef {
-    const modalRef = new ModalRef();
+  openModal<T>(modal: Type<any>, data?: any): ModalRef<T> {
+    const modalRef = new ModalRef<T>();
 
     modalRef.modalType = modal;
     modalRef.data = data;
@@ -38,7 +38,7 @@ export class ModalService {
     this.modalStateSubject.next(this.modals);
   }
 
-  getModalState(): Observable<ModalRef[]> {
+  getModalState(): Observable<ModalRef<any>[]> {
     return this.modalStateSubject.asObservable();
   }
 }

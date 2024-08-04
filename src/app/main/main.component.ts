@@ -5,6 +5,7 @@ import { MainStore } from 'app/main/store/main.store';
 import { AddEditUserModalComponent } from 'app/modal/components/modal-templates/add-edit-user-modal/add-edit-user-modal.component';
 import { ModalService } from 'app/modal/services/modal/modal.service';
 import { IconComponent } from 'app/shared/components/icon/icon.component';
+import { TUser } from 'app/shared/types/user.type';
 import { take } from 'rxjs';
 
 @Component({
@@ -21,9 +22,12 @@ export class MainComponent {
   store = inject(MainStore);
 
   onAddUser(): void {
-    const modelRef = this.modalService.openModal(AddEditUserModalComponent, {
-      isEdit: false,
-    });
+    const modelRef = this.modalService.openModal<TUser>(
+      AddEditUserModalComponent,
+      {
+        isEdit: false,
+      }
+    );
 
     modelRef
       .afterClosed()

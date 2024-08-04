@@ -11,13 +11,14 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { IconComponent } from '../../../../shared/components/icon/icon.component';
-import { InputComponent } from '../../../../shared/components/input/input.component';
-import { SelectComponent } from '../../../../shared/components/select/select.component';
-import { UkrainianCities } from '../../../../shared/data/ukrainian-cities';
-import { userValidators } from '../../../../shared/data/user-validators';
-import { ModalRef } from '../../../data/modal-ref';
 import { TAddEditUserModalData } from './add-edit-user-modal-data.type';
+import { TUser } from 'app/shared/types/user.type';
+import { IconComponent } from 'app/shared/components/icon/icon.component';
+import { InputComponent } from 'app/shared/components/input/input.component';
+import { SelectComponent } from 'app/shared/components/select/select.component';
+import { ModalRef } from 'app/modal/data/modal-ref';
+import { UkrainianCities } from 'app/shared/data/ukrainian-cities';
+import { userValidators } from 'app/shared/data/user-validators';
 
 @Component({
   selector: 'ul-add-edit-user-modal',
@@ -34,7 +35,7 @@ import { TAddEditUserModalData } from './add-edit-user-modal-data.type';
   ],
 })
 export class AddEditUserModalComponent implements OnInit {
-  private modalRef: ModalRef = inject(ModalRef);
+  private modalRef: ModalRef<TUser | null> = inject(ModalRef);
   private fb: FormBuilder = inject(FormBuilder);
 
   data!: TAddEditUserModalData;
