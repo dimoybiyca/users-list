@@ -2,8 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { PersistenceService } from 'app/shared/services/persistence-service/persistence.service';
 import { TUser } from 'app/shared/types/user.type';
 import { environment } from 'environments/environment';
+import { nanoid } from 'nanoid';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -41,7 +41,7 @@ export class UserService {
   }
 
   addUser(user: TUser): void {
-    const id: string = uuidv4().toString();
+    const id: string = nanoid();
 
     this.users.push({ ...user, id });
     this.$usersSubject.next(this.users);

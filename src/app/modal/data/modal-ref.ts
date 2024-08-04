@@ -1,7 +1,7 @@
 import { Type } from '@angular/core';
 import { TModalResult } from 'app/modal/types/modal-result.type';
+import { nanoid } from 'nanoid';
 import { Observable, Subject } from 'rxjs';
-import { v4 as uuidv4 } from 'uuid';
 
 export class ModalRef<T> {
   id: string;
@@ -9,7 +9,7 @@ export class ModalRef<T> {
   modalType: Type<any> | null = null;
 
   constructor() {
-    this.id = uuidv4().toString();
+    this.id = nanoid();
   }
 
   private result = new Subject<TModalResult<T>>();
