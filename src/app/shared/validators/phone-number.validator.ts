@@ -18,9 +18,9 @@ export function PhoneNumberValidator(): ValidatorFn {
       );
       isValidNumber = phoneNumberUtil.isValidNumber(phoneNumber);
     } catch (e) {
-      return { wrongNumber: { value: control.value } };
+      return { wrongPhone: { value: control.value } };
     }
 
-    return isValidNumber ? null : { wrongNumber: { value: control.value } };
+    return isValidNumber ? null : { wrongPhone: { value: control.value } };
   };
 }

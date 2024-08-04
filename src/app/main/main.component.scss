@@ -23,3 +23,22 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 566px) {
+  .main {
+    &-top {
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+    }
+
+    &-button {
+      margin-left: auto;
+    }
+
+    &-search {
+      margin-top: 10px;
+      order: 2;
+    }
+  }
+}

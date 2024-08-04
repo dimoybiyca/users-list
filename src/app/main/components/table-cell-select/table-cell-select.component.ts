@@ -8,6 +8,7 @@ import {
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MainStore } from 'app/main/store/main.store';
 import { InputValidationComponent } from 'app/shared/components/input-validation/input-validation.component';
+import { TUserEditableField } from 'app/shared/types/user-editable-field.type';
 import { TUser } from 'app/shared/types/user.type';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -20,7 +21,7 @@ import { Subject, takeUntil } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableCellSelectComponent implements OnDestroy {
-  @Input() field!: Exclude<keyof TUser, 'id'>;
+  @Input() field!: TUserEditableField;
   @Input() user!: TUser;
   @Input() options!: string[];
 

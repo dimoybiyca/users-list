@@ -20,7 +20,7 @@ export class InputValidationComponent implements OnInit, OnDestroy {
   > = {
     required: () => 'This field is required',
     email: () => 'Invalid email',
-    wrongNumber: () => 'Invalid phone number',
+    wrongPhone: () => 'Invalid phone number',
     minlength: (opts) =>
       `Minimal length is ${opts['requiredLength']} characters`,
     maxlength: (opts) =>

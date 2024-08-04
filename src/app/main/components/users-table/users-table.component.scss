@@ -90,4 +90,11 @@ th {
   font-size: 48px;
   font-weight: bold;
   color: var(--violet);
+  text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    height: calc(100vh - 220px);
+  }
 }

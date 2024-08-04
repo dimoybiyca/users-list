@@ -2,10 +2,13 @@ import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   inject,
+  input,
   Input,
   OnInit,
   signal,
+  ViewChild,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TableService } from 'app/main/services/table-service/table.service';
@@ -14,6 +17,7 @@ import { IconComponent } from 'app/shared/components/icon/icon.component';
 import { InputValidationComponent } from 'app/shared/components/input-validation/input-validation.component';
 import { InputComponent } from 'app/shared/components/input/input.component';
 import { userValidators } from 'app/shared/data/user-validators';
+import { TUserEditableField } from 'app/shared/types/user-editable-field.type';
 import { TUser } from 'app/shared/types/user.type';
 import { take } from 'rxjs';
 
@@ -32,8 +36,10 @@ import { take } from 'rxjs';
   ],
 })
 export class TableCellComponent implements OnInit {
-  @Input() field!: Exclude<keyof TUser, 'id'>;
+  @Input() field!: TUserEditableField;
   @Input() user!: TUser;
+
+  @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 
   private tableService: TableService = inject(TableService);
 
@@ -57,6 +63,12 @@ export class TableCellComponent implements OnInit {
       .subscribe(() => {
         this.onCancel();
       });
+
+    setTimeout(() => {
+      if (this.input.nativeElement) {
+        this.input.nativeElement.focus();
+      }
+    });
   }
 
   onSubmit(): void {

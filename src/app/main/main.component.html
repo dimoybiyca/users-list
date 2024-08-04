@@ -2,7 +2,10 @@
   <div class="main-top">
     <h1 class="main-header">Users</h1>
 
-    <ul-search-input (valueChange)="onSearchChange($event)"></ul-search-input>
+    <ul-search-input
+      class="main-search"
+      (valueChange)="onSearchChange($event)"
+    ></ul-search-input>
 
     <button class="main-button btn btn-primary" (click)="onAddUser()">
       <ul-icon iconName="ADD-SQUARE"></ul-icon>

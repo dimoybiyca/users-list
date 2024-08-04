@@ -1,6 +1,6 @@
 import { ValidatorFn } from '@angular/forms';
-import { TUserEditableFields } from 'app/shared/types/user-editable-fields.type';
+import { TUserEditableField } from 'app/shared/types/user-editable-field.type';
 
 export type TUserValidators = {
-  [K in TUserEditableFields]: ValidatorFn[];
+  [K in TUserEditableField]: ValidatorFn[];
 };
