@@ -84,13 +84,13 @@ export class AddEditUserModalComponent implements OnInit {
 
   initForm(): void {
     this.userForm = this.fb.group({
-      firstName: new FormControl<string>('Test', userValidators.firstName),
-      lastName: new FormControl<string>('Test', userValidators.lastName),
-      email: new FormControl<string>('test@gmail.com', userValidators.email),
-      phone: new FormControl<string>('380633173619', userValidators.phone),
+      firstName: new FormControl<string>('', userValidators.firstName),
+      lastName: new FormControl<string>('', userValidators.lastName),
+      email: new FormControl<string>('', userValidators.email),
+      phone: new FormControl<string>('', userValidators.phone),
       city: new FormControl<string>('', userValidators.city),
-      street: new FormControl<string>('aa', userValidators.street),
-      appartment: new FormControl<string>('12', userValidators.appartment),
+      street: new FormControl<string>('', userValidators.street),
+      appartment: new FormControl<string>('', userValidators.appartment),
     });
   }
 

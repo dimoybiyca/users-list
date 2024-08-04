@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { PersistenceService } from 'app/shared/services/persistence-service/persistence.service';
 import { TUser } from 'app/shared/types/user.type';
-import { environment } from 'environments/environment.development';
+import { environment } from 'environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
