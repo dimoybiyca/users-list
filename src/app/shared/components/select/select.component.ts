@@ -28,7 +28,10 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     this.controlName = this.control.name?.toString() ?? '';
-    this.value = this.getPlaceholder();
+
+    if (!this.value) {
+      this.value = this.getPlaceholder();
+    }
   }
 
   getPlaceholder(): string {
