@@ -16,7 +16,6 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   @Input() type: TInputType = 'text';
   @Input() placeholder?: string;
   @Input() label?: string;
-  @Input() prefix?: string;
   @Input() mask?: string;
 
   value: string = '';

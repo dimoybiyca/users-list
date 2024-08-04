@@ -29,7 +29,7 @@
 
       <ul-input formControlName="email" type="email" />
 
-      <ul-input formControlName="phone" type="phone" mask="+0{15}" />
+      <ul-input formControlName="phone" type="phone" [mask]="phoneMask" />
 
       <ul-select formControlName="city" [options]="cities"></ul-select>
 

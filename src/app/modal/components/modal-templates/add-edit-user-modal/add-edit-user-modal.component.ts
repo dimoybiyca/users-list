@@ -19,6 +19,7 @@ import { SelectComponent } from 'app/shared/components/select/select.component';
 import { ModalRef } from 'app/modal/data/modal-ref';
 import { UkrainianCities } from 'app/shared/data/ukrainian-cities';
 import { userValidators } from 'app/shared/data/user-validators';
+import { phoneMask } from 'app/shared/data/masks';
 
 @Component({
   selector: 'ul-add-edit-user-modal',
@@ -41,6 +42,7 @@ export class AddEditUserModalComponent implements OnInit {
   data!: TAddEditUserModalData;
   userForm!: FormGroup;
   cities: string[] = UkrainianCities;
+  phoneMask: string = phoneMask;
 
   get firstName(): FormControl<string> {
     return this.userForm.get('firstName') as FormControl<string>;

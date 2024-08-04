@@ -20,6 +20,7 @@ import { TConfirmationModalData } from 'app/modal/components/modal-templates/con
 import { ConfirmationModalComponent } from 'app/modal/components/modal-templates/confirmation-modal/confirmation-modal.component';
 import { ModalService } from 'app/modal/services/modal/modal.service';
 import { TModalConfirmationResult } from 'app/modal/types/modal-confirmation-result.type';
+import { phoneMask } from 'app/shared/data/masks';
 import { UkrainianCities } from 'app/shared/data/ukrainian-cities';
 import { TUser } from 'app/shared/types/user.type';
 import { take } from 'rxjs';
@@ -43,6 +44,7 @@ export class UsersTableComponent {
   store = inject(MainStore);
   currentSearchQuery: string = '';
   cities: string[] = UkrainianCities;
+  phoneMask: string = phoneMask;
 
   constructor() {
     effect(

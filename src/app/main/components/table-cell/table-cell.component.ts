@@ -18,6 +18,7 @@ import { InputComponent } from 'app/shared/components/input/input.component';
 import { userValidators } from 'app/shared/data/user-validators';
 import { TUserEditableField } from 'app/shared/types/user-editable-field.type';
 import { TUser } from 'app/shared/types/user.type';
+import { NgxMaskDirective } from 'ngx-mask';
 import { take } from 'rxjs';
 
 @Component({
@@ -32,11 +33,13 @@ import { take } from 'rxjs';
     InputValidationComponent,
     NgClass,
     IconComponent,
+    NgxMaskDirective,
   ],
 })
 export class TableCellComponent implements OnInit {
   @Input() field!: TUserEditableField;
   @Input() user!: TUser;
+  @Input() mask?: string;
 
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 

@@ -32,7 +32,9 @@
           <td><ul-table-cell field="firstName" [user]="user" /></td>
           <td><ul-table-cell field="lastName" [user]="user" /></td>
           <td><ul-table-cell field="email" [user]="user" /></td>
-          <td><ul-table-cell field="phone" [user]="user" /></td>
+          <td>
+            <ul-table-cell field="phone" [user]="user" [mask]="phoneMask" />
+          </td>
           <td>
             <ul-table-cell-select
               field="city"
